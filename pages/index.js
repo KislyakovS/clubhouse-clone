@@ -1,15 +1,13 @@
-import Head from 'next/head'
-import Link from "next/link"
+import Head from "next/head"
+import { WelcomeStep } from "../components/steps/WelcomeStep"
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Hello world</title>
+        <title>Clubhouse: Drop-in audio chat</title>
       </Head>
-      <Link href="/room">
-          go to room #1
-      </Link>
+      <WelcomeStep />
     </div>
   )
 }
