@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect, FC, ChangeEvent } from "react"
+import { FC, useContext, useState, useRef, useEffect } from "react"
 import clsx from "clsx"
+
 import { WhiteBlock } from "../../WhiteBlock"
 import { Button } from "../../Button"
 import { StepInfo } from "../../StepInfo"
@@ -7,7 +8,10 @@ import { Avatar } from "../../Avatar"
 
 import styles from "./ChooseAvatarStep.module.scss"
 
+import { MainContext } from "../../../pages"
+
 export const ChooseAvatarStep: FC = () => {
+    const { onNextStep } = useContext(MainContext)
     const inputRef = useRef<HTMLInputElement>(null)
     const [avatarUrl, setAvatarUrl] = useState("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/party-popper_1f389.png")
 
@@ -43,7 +47,7 @@ export const ChooseAvatarStep: FC = () => {
                     </label>
                 </div>
                 <input id="image" type="file" ref={inputRef} hidden/>
-                <Button>
+                <Button onClick={onNextStep}>
                     Next
                     <img className="d-ib ml-10" src="/static/arrow.png" alt="Arrow"/>
                 </Button>

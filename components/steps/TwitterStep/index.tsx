@@ -1,11 +1,17 @@
+import { FC, useContext } from "react"
 import clsx from "clsx"
+
 import { WhiteBlock } from "../../WhiteBlock"
 import { Button } from "../../Button"
 import { StepInfo } from "../../StepInfo"
 
 import styles from "./TwitterStep.module.scss"
 
-export const TwitterStep = () => {
+import { MainContext } from "../../../pages"
+
+export const TwitterStep: FC = () => {
+    const { onNextStep } = useContext(MainContext)
+
     return (
         <div className={styles.block}>
             <StepInfo
@@ -15,7 +21,7 @@ export const TwitterStep = () => {
             <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
                 <div className={clsx("d-ib", styles.avatar)}></div>
                 <h2 className="mb-40">Alexandr Kislyakov</h2>
-                <Button>
+                <Button onClick={onNextStep}>
                     <img className="mr-10" src="/static/twitter.png" alt="Twitter logo"/>
                     Import from Twitter
                     <img className="d-ib ml-10" src="/static/arrow.png" />

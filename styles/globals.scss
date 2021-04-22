@@ -53,7 +53,7 @@ a {
     border-radius: 50%;
     border: 0.3rem solid rgba(#b1aa97, 0.3);
     border-top-color: #b1aa97;
-    animation: 0.5 spin infinite linear;
+    animation: spin .5s infinite linear;
 }
 
 @keyframes spin {
