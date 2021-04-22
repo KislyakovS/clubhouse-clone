@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/Button/index.jsx", "components/StepInfo/index.jsx", "components/steps/EnterNameStep/index.jsx", "components/steps/WelcomeStep/index.jsx", "components/WhiteBlock/index.jsx"  ],
+, "components/Button/index.jsx", "components/StepInfo/index.tsx", "components/steps/EnterNameStep/index.tsx", "components/steps/WelcomeStep/index.tsx", "components/WhiteBlock/index.tsx"  ],
   "exclude": [
     "node_modules"
   ]

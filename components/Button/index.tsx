@@ -1,8 +1,16 @@
+import { FC, MouseEvent } from "react"
 import clsx from "clsx"
 
 import styles from "./Button.module.scss"
 
-export const Button = ({ children, disabled, color, onClick, className }) => {
+interface ButtonProps {
+    disabled?: boolean;
+    color?: "green" | "gray";
+    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    className?: string;
+}
+
+export const Button: FC<ButtonProps> = ({ children, disabled, color, onClick, className }) => {
     const colors = {
         green: styles.buttonGreen,
         gray: styles.buttonGray
