@@ -3,19 +3,19 @@ import clsx from "clsx"
 
 import styles from "./Button.module.scss"
 
+const colors = {
+    green: styles.buttonGreen,
+    gray: styles.buttonGray,
+    blue: styles.buttonBlue
+}
 interface ButtonProps {
     disabled?: boolean;
-    color?: "green" | "gray";
+    color?: keyof typeof colors;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     className?: string;
 }
 
 export const Button: FC<ButtonProps> = ({ children, disabled, color, onClick, className }) => {
-    const colors = {
-        green: styles.buttonGreen,
-        gray: styles.buttonGray
-    }
-
     return (
         <button
             onClick={onClick}
