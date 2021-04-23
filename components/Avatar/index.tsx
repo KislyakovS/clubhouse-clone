@@ -15,7 +15,7 @@ export const Avatar: FC<AvatarProps> = ({
 }) => {
     return (
         <div
-            style={{ width, height, backgroundImage: `url(${src})` }}
+            style={{ width, height, backgroundImage: `url(${src})`, backgroundSize: "cover" }}
             className={clsx("d-ib", className, styles.avatar, isVoice ? styles.avatarBorder : "")}
         />
     )

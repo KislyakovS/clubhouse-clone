@@ -1,3 +1,8 @@
+import { Header } from "../components/Header"
+
 export default () => (
-    <h1>Rooms</h1>
+    <>
+        <Header />
+        <h1>Room</h1>
+    </>
 )
