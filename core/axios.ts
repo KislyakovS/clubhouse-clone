@@ -1,7 +1,6 @@
 import Axios from "axios"
 
 const instance = Axios.create({
-    baseURL: 'wqeqewwq',
     withCredentials: true
 })
 
@@ -12,3 +11,5 @@ instance.interceptors.request.use(config => {
 
     return config
 })
+
+export default instance

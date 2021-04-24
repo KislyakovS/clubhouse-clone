@@ -11,7 +11,7 @@ export default function() {
     return (
        <>
         <Header />
-        <div className="container mt-40">
+        <div className="container mt-10">
             <ButtonBack href="/rooms" text="All rooms" />
         </div>
         <Room title="Room #1"/> 

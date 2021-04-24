@@ -8,7 +8,6 @@ import styles from "./Room.module.scss"
 
 interface RoomProps {
     title: string;
-
 }
 
 export const Room: FC<RoomProps> = ({ title }) => {

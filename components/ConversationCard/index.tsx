@@ -7,14 +7,14 @@ import { Avatar } from "../Avatar"
 interface ConversationCardProps {
     title: string;
     avatars: string[];
-    users: string[];
+    guests: string[];
     guestsCount: number;
     speakersCount: number
 }
 
-export const ConversationCard: FC<ConversationCardProps> = ({ title, avatars = [], users = [], guestsCount, speakersCount }) => {
+export const ConversationCard: FC<ConversationCardProps> = ({ title, avatars = [], guests = [], guestsCount, speakersCount }) => {
     return (
-        <div className={clsx("mb-30", styles.card)}>
+        <div className={styles.card}>
             <h1 className={styles.title}>{title}</h1>
             <div className={clsx("d-flex mt-10", styles.content)}>
                 <div className={styles.avatars}>
@@ -29,9 +29,9 @@ export const ConversationCard: FC<ConversationCardProps> = ({ title, avatars = [
                 </div>
                 <div className={clsx("ml-10", styles.info)}>
                     <ul className={clsx(styles.users, styles.list)}>
-                        {users.map(user => (
-                            <li key={user}>
-                                {user} <img src="/static/message.png" width="15" height="15" />
+                        {guests.map((guest, i) => (
+                            <li key={guest + i}>
+                                {guest} <img src="/static/message.png" width="15" height="15" />
                             </li>
                         ))}
                     </ul>

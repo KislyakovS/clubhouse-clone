@@ -1,0 +1,152 @@
+[
+    {
+      "id": "6084148ef9b2999569153608",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?1",
+        "https://source.unsplash.com/random/100x100?2"
+      ],
+      "guestsCount": 40,
+      "speakersCount": 12,
+      "title": "Proident commodo",
+      "guests": [
+        "Миша Михайловна",
+        "Генадий Горин",
+        "Света Добролюбова"
+      ]
+    },
+    {
+      "id": "6084148eadbd0c6e9a67af82",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?3",
+        "https://source.unsplash.com/random/100x100?4"
+      ],
+      "guestsCount": 69,
+      "speakersCount": 3,
+      "title": "Aute dolor",
+      "guests": [
+        "Света Добролюбова",
+        "Миша Михайловна",
+        "Света Добролюбова"
+      ]
+    },
+    {
+      "id": "6084148ef1345e960a3856ae",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?100",
+        "https://source.unsplash.com/random/100x100?5"
+      ],
+      "guestsCount": 45,
+      "speakersCount": 3,
+      "title": "Aliqua magna dolore",
+      "guests": [
+        "Света Добролюбова",
+        "Генадий Горин",
+        "Света Добролюбова"
+      ]
+    },
+    {
+      "id": "6084148ec7bf5aa9d711a5f4",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?6",
+        "https://source.unsplash.com/random/100x100?7"
+      ],
+      "guestsCount": 97,
+      "speakersCount": 7,
+      "title": "Amet officia ad fugiat ipsum.",
+      "guests": [
+        "Генадий Горин",
+        "Иван Иванови",
+        "Миша Михайловна"
+      ]
+    },
+    {
+      "id": "6084148ee4082f33eb681b31",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?8",
+        "https://source.unsplash.com/random/100x100?9"
+      ],
+      "guestsCount": 65,
+      "speakersCount": 2,
+      "title": "Qui ullamco amet",
+      "guests": [
+        "Иван Иванови",
+        "Генадий Букин",
+        "Генадий Горин"
+      ]
+    },
+    {
+      "id": "6084148e270d7c091611884c",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?10",
+        "https://source.unsplash.com/random/100x100?11"
+      ],
+      "guestsCount": 87,
+      "speakersCount": 4,
+      "title": "Incididunt nostrud fugiat",
+      "guests": [
+        "Генадий Горин",
+        "Генадий Горин",
+        "Генадий Горин"
+      ]
+    },
+    {
+      "id": "6084148e1d7ca601f816bd3e",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?12",
+        "https://source.unsplash.com/random/100x100?13"
+      ],
+      "guestsCount": 84,
+      "speakersCount": 13,
+      "title": "Voluptate mollit cillum dolor",
+      "guests": [
+        "Иван Иванови",
+        "Миша Михайловна",
+        "Света Добролюбова"
+      ]
+    },
+    {
+      "id": "6084148ef980794ffedcd2df",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?14",
+        "https://source.unsplash.com/random/100x100?15"
+      ],
+      "guestsCount": 36,
+      "speakersCount": 8,
+      "title": "Proident tempor eu",
+      "guests": [
+        "Миша Михайловна",
+        "Иван Иванови",
+        "Миша Михайловна"
+      ]
+    },
+    {
+      "id": "6084148e409398125e8352f1",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?16",
+        "https://source.unsplash.com/random/100x100?17"
+      ],
+      "guestsCount": 23,
+      "speakersCount": 4,
+      "title": "Esse nisi dolor",
+      "guests": [
+        "Света Добролюбова",
+        "Иван Иванови",
+        "Иван Иванови"
+      ]
+    },
+    {
+      "id": "6084148e5f04fa1252828a15",
+      "avatars": [
+        "https://source.unsplash.com/random/100x100?18",
+        "https://source.unsplash.com/random/100x100?19"
+      ],
+      "guestsCount": 10,
+      "speakersCount": 14,
+      "title": "Officia reprehenderit",
+      "guests": [
+        "Миша Михайловна",
+        "Генадий Горин",
+        "Генадий Букин"
+      ]
+    }
+  ]
