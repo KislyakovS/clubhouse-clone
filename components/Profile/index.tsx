@@ -4,6 +4,7 @@ import clsx from "clsx"
 
 import { Avatar } from "../Avatar"
 import { Button } from "../Button"
+import { ButtonBack } from "../ButtonBack"
 
 import styles from "./Profile.module.scss"
 
@@ -17,14 +18,7 @@ interface ProfileProps {
 export const Profile : FC<ProfileProps> = ({ fullname, username, avatarUrl, about }) => {
     return (
         <Fragment>
-            <Link href="/rooms">
-                <a>
-                    <div className="d-flex align-items-center">
-                        <img src="/static/back-arrow.svg" alt="Back" className="mr-10"/>
-                        <h4 style={{ position: "relative", top: 1 }}>Back</h4>
-                    </div>
-                </a>
-            </Link>
+            <ButtonBack href="/rooms" />
             <div className="d-flex align-items-center">
                 <div className="d-flex">
                     <Avatar className="mr-30" width="100px" height="100px" src={avatarUrl} />
