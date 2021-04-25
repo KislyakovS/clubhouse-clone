@@ -7,16 +7,7 @@ import { ConversationCard } from "../../components/ConversationCard";
 
 import Axios from "../../core/axios";
 
-export default () => {
-  const [rooms, setRooms] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await Axios.get("/rooms.json");
-      setRooms(data);
-    })();
-  }, []);
-
+export default ({ rooms = [] }) => {
   return (
     <>
       <Header />
@@ -40,3 +31,22 @@ export default () => {
     </>
   );
 };
+
+export const getServerSideProps = async () => {
+  try {
+    const { data } = await Axios.get("/rooms.json");
+    return {
+      props: {
+        rooms: data
+      }
+    }
+  } catch (error) {
+    console.log(`Error: ${error.message}`)
+  }
+
+  return {
+    props: {
+      rooms: []
+    }
+  }
+}

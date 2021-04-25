@@ -4,7 +4,9 @@ import { Header } from "../../components/Header"
 import { ButtonBack } from "../../components/ButtonBack"
 import { Room } from "../../components/Room"
 
-export default function() {
+import Axios from "../../core/axios"
+
+export default function({ room }) {
     const router = useRouter()
     const { id } = router.query
 
@@ -14,7 +16,27 @@ export default function() {
         <div className="container mt-10">
             <ButtonBack href="/rooms" text="All rooms" />
         </div>
-        <Room title="Room #1"/> 
+        <Room title={room.title}/> 
        </>
     )
 }
+export const getServerSideProps = async ({ query }) => {
+    try {
+        const { id } = query
+      const { data } = await Axios.get("/rooms.json");
+      const room = data.find(it => it.id === id)
+      return {
+        props: {
+          room
+        }
+      }
+    } catch (error) {
+      console.log(`Error: ${error.message}`)
+    }
+  
+    return {
+      props: {
+        room: {}
+      }
+    }
+  }
