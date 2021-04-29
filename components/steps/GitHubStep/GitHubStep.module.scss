@@ -13,3 +13,11 @@
     background-color: lightgray;
     border-radius: 20px;
 }
+
+.button {
+    background-color: #23292e;
+
+    &:hover {
+        background-color: lighten(#23292e, 10);
+    }
+}

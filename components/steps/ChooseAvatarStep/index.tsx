@@ -10,16 +10,39 @@ import styles from "./ChooseAvatarStep.module.scss"
 
 import { MainContext } from "../../../pages"
 
+import axios from "../../../core/axios"
+
+const uploadFile = async (file: File) => {
+    const formData = new FormData()
+    formData.append('avatar', file)
+
+    // const { data } = await axios.post("/upload", formData, {
+    //     headers: {
+    //         "Content-Type": "multipart/form-data"
+    //     }
+    // })
+
+    const { data } = await axios({
+        method: "POST",
+        url: "/upload",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" }
+    })
+
+    return data
+}
+
 export const ChooseAvatarStep: FC = () => {
     const { onNextStep } = useContext(MainContext)
     const inputRef = useRef<HTMLInputElement>(null)
     const [avatarUrl, setAvatarUrl] = useState("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/party-popper_1f389.png")
 
-    const handleChangeImage = (e: Event) => {
+    const handleChangeImage = async (e: Event) => {
         const target = e.target as HTMLInputElement
         const file = target.files[0]
         const imageUrl = URL.createObjectURL(file)
         setAvatarUrl(imageUrl)
+        const data = await uploadFile(file)
     }
 
     useEffect(() => {

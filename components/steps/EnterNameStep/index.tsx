@@ -10,13 +10,19 @@ import styles from "./EnterNameStep.module.scss"
 import { MainContext } from "../../../pages"
 
 export const EnterNameStep: FC = () => {
-    const { onNextStep } = useContext(MainContext)
-    const [inputValue, setInputValue] = useState("")
+    const { onNextStep, userData, setFieldValue } = useContext(MainContext)
+    //const [inputValue, setInputValue] = useState("")
+    const [userName, setUserName] = useState(userData.fullname)
 
-    const isButtonDisabled = inputValue.trim() === ""
+    const isButtonDisabled = userName.trim() === ""
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value)
+        setUserName(e.target.value)
+    }
+
+    const handleButtonNext = () => {
+        setFieldValue("fullname", userName);
+        onNextStep()
     }
 
     return (
@@ -28,9 +34,9 @@ export const EnterNameStep: FC = () => {
             />
             <WhiteBlock className={clsx("m-auto", styles.whiteBlock)}>
                 <div className="mb-30">
-                    <input className="field" type="text" value={inputValue} onChange={handleInputChange} placeholder="Enter fullname"/>
+                    <input className="field" type="text" value={userName} onChange={handleInputChange} placeholder="Enter fullname"/>
                 </div>
-                <Button onClick={onNextStep} disabled={isButtonDisabled}>
+                <Button onClick={handleButtonNext} disabled={isButtonDisabled}>
                     Next
                     <img className="d-ib ml-10" src="/static/arrow.png" />
                 </Button>
