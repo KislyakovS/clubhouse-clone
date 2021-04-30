@@ -16,12 +16,6 @@ const uploadFile = async (file: File) => {
     const formData = new FormData()
     formData.append('avatar', file)
 
-    // const { data } = await axios.post("/upload", formData, {
-    //     headers: {
-    //         "Content-Type": "multipart/form-data"
-    //     }
-    // })
-
     const { data } = await axios({
         method: "POST",
         url: "/upload",
@@ -33,7 +27,7 @@ const uploadFile = async (file: File) => {
 }
 
 export const ChooseAvatarStep: FC = () => {
-    const { onNextStep } = useContext(MainContext)
+    const { onNextStep, setFieldValue, userData } = useContext(MainContext)
     const inputRef = useRef<HTMLInputElement>(null)
     const [avatarUrl, setAvatarUrl] = useState("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/party-popper_1f389.png")
 
@@ -43,6 +37,7 @@ export const ChooseAvatarStep: FC = () => {
         const imageUrl = URL.createObjectURL(file)
         setAvatarUrl(imageUrl)
         const data = await uploadFile(file)
+        setFieldValue("avatarUrl", data.url)
     }
 
     useEffect(() => {
@@ -55,7 +50,7 @@ export const ChooseAvatarStep: FC = () => {
         <div className={styles.block}>
             <StepInfo 
                 icon="/static/party-popper.png"
-                title="Okay, Alexandr Kislyakov!"
+                title={`Okay, ${userData.fullname}!"`}
                 description="How's this photos?"
             />
             <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>

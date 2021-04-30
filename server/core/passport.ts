@@ -1,6 +1,17 @@
-import passport, { use } from "passport"
+import passport from "passport"
 import { Strategy as GitHubStrategy } from "passport-github"
+import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { Users } from "../models"
+
+const opts = {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: process.env.SECRET_KEY_JWT
+}
+
+passport.use("jwt", new JwtStrategy(opts, (jwt_payload, done) => {
+    
+}));
+
 
 passport.use("github", new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,

@@ -36,7 +36,7 @@ interface MainContextProps {
 export const MainContext = createContext<MainContextProps>({} as MainContextProps)
 
 export default function Home() {
-  const [step, setStep] = useState(3)
+  const [step, setStep] = useState(4)
   const [userData, setUserData] = useState<User>()
   const Step = stepsComponents[step]
 
@@ -62,3 +62,5 @@ export default function Home() {
     </div>
   )
 }
+
+// npx sequelize-cli model:generate --name code --attributes code:string,user_id:integer
