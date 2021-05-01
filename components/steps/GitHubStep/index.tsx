@@ -1,4 +1,5 @@
 import { FC, useContext, useEffect, useCallback } from "react"
+import jsCookie from "js-cookie"
 import clsx from "clsx"
 
 import { WhiteBlock } from "../../WhiteBlock"
@@ -24,9 +25,10 @@ export const GitHubStep: FC = () => {
 
     const onMessage = useCallback(({ data: user}) => {
         if (user.avatarUrl) {
-            console.log(user)
             setUserData(user)
             onNextStep()
+
+            jsCookie.set("token", user.token)
         }
     }, [])
 

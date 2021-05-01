@@ -5,13 +5,13 @@ import cors from "cors"
 import { Code } from "./models"
 import Axios from "axios"
 
-declare global {
-  namespace Express {
-    interface User {
-      id: number
-    }
-  }
-}
+// declare global {
+//   namespace Express {
+//     interface User {
+//       id: number
+//     }
+//   }
+// }
 
 dotenv.config()
 
@@ -39,14 +39,47 @@ app.get('/auth/github',
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }),
   (req, res) => {
-    res.send(`<script>window.opener.postMessage(${JSON.stringify(req.user), '*'}) window.close()</script>`)
+    res.send(`<script>window.opener.postMessage(${JSON.stringify(req.user)}, '*'); window.close()</script>`)
 });
 
 const randomCode = (max: number, min: number): number => Math.floor(Math.random() * (max - min + 1) + min);
 
-app.get("/auth/sms", async (req, res) => {
+app.get("/auth/me", passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json(req.user)
+})
+
+app.get("/auth/sms/active", async (req, res) => {
+  const code = req.query.code;
+  const userId = req.user!.id;
+
+  if (!code) {
+    return res.status(400).send()
+  }
+
+  try {
+    const findCode = await Code.findOne({
+      where: { code, user_id: userId }
+    })
+
+    if (findCode) {
+      Code.destroy({
+        where: { code, user_id: userId }
+      })
+
+      return res.status(201).send()
+    } else {
+      return res.status(400).send()
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "Ошибка сообщения"
+    })
+  }
+})
+
+app.get("/auth/sms", passport.authenticate("jwt", { session: true }), async (req, res) => {
   const phone = req.query.phone;
-  const userId = req.user.id;
+  const userId = req.user!.id;
 
   if (phone) {
     return res.status(404)

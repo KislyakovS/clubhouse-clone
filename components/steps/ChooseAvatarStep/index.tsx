@@ -29,7 +29,7 @@ const uploadFile = async (file: File) => {
 export const ChooseAvatarStep: FC = () => {
     const { onNextStep, setFieldValue, userData } = useContext(MainContext)
     const inputRef = useRef<HTMLInputElement>(null)
-    const [avatarUrl, setAvatarUrl] = useState("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/party-popper_1f389.png")
+    const [avatarUrl, setAvatarUrl] = useState(userData.avatarUrl)
 
     const handleChangeImage = async (e: Event) => {
         const target = e.target as HTMLInputElement
